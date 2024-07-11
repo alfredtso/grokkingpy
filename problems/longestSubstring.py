@@ -9,18 +9,19 @@ class Solution:
         >>> c.lengthOfLongestSubstring(s)
         16
         """
-        inv = defaultdict(lambda: 0)
+        inv = set()
         start, end = 0, 0
         counter = 0
         res = 0
 
         while end < len(s):
-            inv[s[end]] += 1
-            if inv[s[end]] > 1:
+            if not s[end] in inv:
+                inv.add(s[end])
+            else:
                 counter += 1
 
             while counter:
-                inv[s[start]] -= 1
+                inv.remove(s[start])
                 if inv[s[start]] == 1:
                     counter -= 1
                 start += 1

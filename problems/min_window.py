@@ -1,5 +1,5 @@
-import typing
 from collections import defaultdict
+import pprint
 
 class Solution:
     def debug(self, s, start, end, counter, inv):
